@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import { Label } from "@/components/ui/label";
 
 // This is a placeholder for cart functionality.
 // In a real app, this would come from a cart context or API.
