@@ -7,6 +7,7 @@ import { getProductRecommendations } from '@/ai/flows/product-recommendations';
 import { getBookById } from '@/lib/data';
 import { BookCard } from './BookCard';
 import { Skeleton } from '../ui/skeleton';
+import { isDev } from '@/lib/utils';
 
 interface ProductRecommendationsProps {
   currentBook: Book;
@@ -38,14 +39,9 @@ export function ProductRecommendations({ currentBook }: ProductRecommendationsPr
           userBrowsingHistory: historyDetails || 'No browsing history.',
           communityRatings: `The current book has a rating of ${currentBook.rating} out of 5.`,
         });
-
-        // The AI returns a list of strings (book titles). We need to find these books in our data.
-        // This is a simulation; a real app would use a search or lookup.
+        
         const recommendedBooks = aiResponse.recommendations
-          .map(recTitle => {
-            // Find book by matching title, very simplified.
-            return getBookById(recTitle.toLowerCase().replace(/ /g, '-'));
-          })
+          .map(id => getBookById(id))
           .filter((b): b is Book => b !== undefined)
           .filter(b => b.id !== currentBook.id); // Filter out the current book
         
@@ -59,7 +55,9 @@ export function ProductRecommendations({ currentBook }: ProductRecommendationsPr
         }
 
       } catch (error) {
-        console.error("Failed to get AI recommendations:", error);
+        if(isDev()) {
+            console.error("Failed to get AI recommendations:", error);
+        }
         // Fallback to simple recommendation on error
         const fallbackRecs = (await import('@/lib/data')).getRecommendedBooks(currentBook.id);
         setRecommendations(fallbackRecs);
