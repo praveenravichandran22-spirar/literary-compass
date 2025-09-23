@@ -1,3 +1,5 @@
+"use client";
+
 import Link from 'next/link';
 import { BookOpen, Menu, ShoppingCart, User } from 'lucide-react';
 import { Logo } from '@/components/icons/Logo';
@@ -16,8 +18,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useCart } from '@/context/CartContext';
+import { Badge } from '../ui/badge';
 
 export function Header() {
+  const { cartCount } = useCart();
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -43,9 +49,14 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon" asChild>
+          <Button variant="ghost" size="icon" className="relative" asChild>
             <Link href="/cart">
               <ShoppingCart className="h-5 w-5" />
+              {cartCount > 0 && (
+                <Badge variant="destructive" className="absolute -top-2 -right-2 h-5 w-5 justify-center rounded-full p-0 text-xs">
+                  {cartCount}
+                </Badge>
+              )}
               <span className="sr-only">Shopping Cart</span>
             </Link>
           </Button>

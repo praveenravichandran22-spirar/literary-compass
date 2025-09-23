@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -10,49 +12,36 @@ import {
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Label } from "@/components/ui/label";
+import { useCart } from "@/context/CartContext";
+import { X } from "lucide-react";
 
-// This is a placeholder for cart functionality.
-// In a real app, this would come from a cart context or API.
-const cartItems = [
-  {
-    id: "lessons-in-chemistry",
-    title: "Lessons in Chemistry",
-    author: "Bonnie Garmus",
-    price: 17.99,
-    imageUrl: "https://images.unsplash.com/photo-1667039487487-2af414218c49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Ym9vayUyMGRlc2lnbnxlbnwwfHx8fDE3NTg2MTA1NjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    quantity: 1,
-  },
-];
-
-const cartTotal = cartItems.reduce(
-  (total, item) => total + item.price * item.quantity,
-  0
-);
 const shippingCost = 5.99;
 
 export default function CartPage() {
+  const { cartItems, cartTotal, removeFromCart, updateQuantity, cartCount } = useCart();
+
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-3xl font-headline font-bold tracking-tight">
         Your Shopping Cart
       </h1>
       {cartItems.length === 0 ? (
-        <div className="mt-8 text-center">
+        <div className="mt-8 text-center border-2 border-dashed rounded-lg py-24">
           <p className="text-lg text-muted-foreground">Your cart is empty.</p>
-          <Button asChild className="mt-4">
+          <Button asChild className="mt-6">
             <Link href="/">Continue Shopping</Link>
           </Button>
         </div>
       ) : (
-        <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
           <div className="lg:col-span-2">
             <ul role="list" className="divide-y divide-border">
               {cartItems.map((item) => (
-                <li key={item.id} className="flex py-6">
-                  <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-border">
+                <li key={item.book.id} className="flex py-6">
+                  <div className="h-32 w-24 flex-shrink-0 overflow-hidden rounded-md border border-border">
                     <Image
-                      src={item.imageUrl}
-                      alt={item.title}
+                      src={item.book.imageUrl}
+                      alt={item.book.title}
                       width={96}
                       height={144}
                       className="h-full w-full object-cover object-center"
@@ -63,33 +52,37 @@ export default function CartPage() {
                     <div>
                       <div className="flex justify-between text-base font-medium text-foreground">
                         <h3>
-                          <Link href={`/book/${item.id}`}>{item.title}</Link>
+                          <Link href={`/book/${item.book.id}`}>{item.book.title}</Link>
                         </h3>
-                        <p className="ml-4">${item.price.toFixed(2)}</p>
+                        <p className="ml-4">${(item.book.price * item.quantity).toFixed(2)}</p>
                       </div>
                       <p className="mt-1 text-sm text-muted-foreground">
-                        {item.author}
+                        {item.book.author}
                       </p>
                     </div>
                     <div className="flex flex-1 items-end justify-between text-sm">
                       <div className="flex items-center gap-2">
-                        <Label htmlFor={`quantity-${item.id}`} className="sr-only">Quantity</Label>
+                        <Label htmlFor={`quantity-${item.book.id}`} className="sr-only">Quantity</Label>
                         <Input
-                          id={`quantity-${item.id}`}
+                          id={`quantity-${item.book.id}`}
                           type="number"
                           min="1"
-                          defaultValue={item.quantity}
-                          className="w-16"
+                          value={item.quantity}
+                          onChange={(e) => updateQuantity(item.book.id, parseInt(e.target.value))}
+                          className="w-20"
                         />
                       </div>
 
                       <div className="flex">
                         <Button
                           type="button"
-                          variant="link"
-                          className="font-medium text-primary hover:text-primary/80"
+                          variant="ghost"
+                          size="icon"
+                          className="text-muted-foreground hover:text-primary"
+                          onClick={() => removeFromCart(item.book.id)}
                         >
-                          Remove
+                          <X className="h-4 w-4" />
+                          <span className="sr-only">Remove</span>
                         </Button>
                       </div>
                     </div>
@@ -99,14 +92,14 @@ export default function CartPage() {
             </ul>
           </div>
 
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 sticky top-24">
             <Card>
               <CardHeader>
                 <CardTitle>Order summary</CardTitle>
               </CardHeader>
               <CardContent className="grid gap-4">
                 <div className="flex justify-between">
-                  <dt className="text-muted-foreground">Subtotal</dt>
+                  <dt className="text-muted-foreground">Subtotal ({cartCount} items)</dt>
                   <dd>${cartTotal.toFixed(2)}</dd>
                 </div>
                 <div className="flex justify-between">

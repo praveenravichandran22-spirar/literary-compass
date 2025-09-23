@@ -1,3 +1,5 @@
+"use client";
+
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getBookById } from '@/lib/data';
@@ -7,6 +9,9 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { ProductRecommendations } from '@/components/books/ProductRecommendations';
 import { Badge } from '@/components/ui/badge';
+import { useCart } from '@/context/CartContext';
+import type { Book } from '@/lib/types';
+import { useEffect, useState } from 'react';
 
 type BookPageProps = {
   params: { id: string };
@@ -31,11 +36,27 @@ function Rating({ rating }: { rating: number }) {
 }
 
 export default function BookPage({ params }: BookPageProps) {
-  const book = getBookById(params.id);
+  const [book, setBook] = useState<Book | undefined>(undefined);
+  const { addToCart } = useCart();
+  
+  useEffect(() => {
+      const foundBook = getBookById(params.id);
+      setBook(foundBook);
+  }, [params.id]);
+
 
   if (!book) {
-    notFound();
+    // We could show a loading skeleton here before notFound() is called
+    // For now, notFound() will be triggered on the next render if book is still undefined.
+    const bookCheck = getBookById(params.id);
+    if (!bookCheck) {
+        notFound();
+    }
   }
+  
+  // This is a client component now, so notFound() must be handled carefully.
+  if (!book) return null;
+
 
   const categoryName = book.category.charAt(0).toUpperCase() + book.category.slice(1).replace('-', ' ');
   const subCategoryName = book.subcategory.charAt(0).toUpperCase() + book.subcategory.slice(1).replace('-', ' ');
@@ -82,7 +103,9 @@ export default function BookPage({ params }: BookPageProps) {
 
           <p className="mt-6 text-3xl font-bold text-foreground">${book.price.toFixed(2)}</p>
 
-          <Button size="lg" className="mt-6 w-full sm:w-auto">Add to Cart</Button>
+          <Button size="lg" className="mt-6 w-full sm:w-auto" onClick={() => addToCart(book)}>
+            Add to Cart
+          </Button>
           
           <Separator className="my-8" />
 

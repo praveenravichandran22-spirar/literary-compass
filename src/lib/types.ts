@@ -19,6 +19,11 @@ export interface Book {
   reviews: Review[];
 }
 
+export interface CartItem {
+  book: Book;
+  quantity: number;
+}
+
 export interface Subcategory {
   name: string;
   slug: string;
