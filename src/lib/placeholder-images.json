@@ -1,3 +1,94 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "the-four-winds",
+      "description": "Book cover for The Four Winds",
+      "imageUrl": "https://images.unsplash.com/photo-1641154748135-8032a61a3f80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzU4NjMxMDQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "book cover"
+    },
+    {
+      "id": "the-lincoln-highway",
+      "description": "Book cover for The Lincoln Highway",
+      "imageUrl": "https://images.unsplash.com/photo-1752243751485-28462bdee57a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxub3ZlbCUyMGNvdmVyfGVufDB8fHx8MTc1ODU5MzExOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "novel cover"
+    },
+    {
+      "id": "lessons-in-chemistry",
+      "description": "Book cover for Lessons in Chemistry",
+      "imageUrl": "https://images.unsplash.com/photo-1667039487487-2af414218c49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Ym9vayUyMGRlc2lnbnxlbnwwfHx8fDE3NTg2MTA1NjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "book design"
+    },
+    {
+      "id": "atomic-habits",
+      "description": "Book cover for Atomic Habits",
+      "imageUrl": "https://images.unsplash.com/photo-1592496431122-2349e0fbc666?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxib29rJTIwY292ZXJ8ZW58MHx8fHwxNzU4NjMxMDQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "book cover"
+    },
+    {
+      "id": "the-body-keeps-the-score",
+      "description": "Book cover for The Body Keeps the Score",
+      "imageUrl": "https://images.unsplash.com/photo-1638443436690-db587cc66f12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwc3ljaG9sb2d5JTIwYm9va3xlbnwwfHx8fDE3NTg2MzUzMjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "psychology book"
+    },
+    {
+      "id": "educated",
+      "description": "Book cover for Educated",
+      "imageUrl": "https://images.unsplash.com/photo-1564359179886-afa7f541e3b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtZW1vaXIlMjBjb3ZlcnxlbnwwfHx8fDE3NTg2MzUzMjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "memoir cover"
+    },
+    {
+      "id": "the-silent-patient",
+      "description": "Book cover for The Silent Patient",
+      "imageUrl": "https://images.unsplash.com/photo-1676976196886-c785a3ecd083?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0aHJpbGxlciUyMGJvb2t8ZW58MHx8fHwxNzU4NjM1MzIxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "thriller book"
+    },
+    {
+      "id": "the-guest-list",
+      "description": "Book cover for The Guest List",
+      "imageUrl": "https://images.unsplash.com/photo-1513600301502-ec98d24dd899?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxteXN0ZXJ5JTIwbm92ZWx8ZW58MHx8fHwxNzU4NjM1MzIxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mystery novel"
+    },
+    {
+      "id": "then-she-was-gone",
+      "description": "Book cover for Then She Was Gone",
+      "imageUrl": "https://images.unsplash.com/photo-1599913305849-b53e2af8422a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdXNwZW5zZSUyMG5vdmVsfGVufDB8fHx8MTc1ODYzNTMyMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "suspense novel"
+    },
+    {
+      "id": "where-the-wild-things-are",
+      "description": "Book cover for Where the Wild Things Are",
+      "imageUrl": "https://images.unsplash.com/photo-1704241370920-e67ce744d8cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjaGlsZHJlbnMlMjBib29rfGVufDB8fHx8MTc1ODU5MjY0OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "childrens book"
+    },
+    {
+      "id": "the-very-hungry-caterpillar",
+      "description": "Book cover for The Very Hungry Caterpillar",
+      "imageUrl": "https://images.unsplash.com/photo-1532774682361-95f0831019d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxraWRzJTIwYm9va3xlbnwwfHx8fDE3NTg2MzUzMjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "kids book"
+    },
+    {
+      "id": "goodnight-moon",
+      "description": "Book cover for Goodnight Moon",
+      "imageUrl": "https://images.unsplash.com/photo-1644416598043-11c2816eec28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwaWN0dXJlJTIwYm9va3xlbnwwfHx8fDE3NTg2MzUzMjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "picture book"
+    },
+    {
+      "id": "tomorrow-and-tomorrow-and-tomorrow",
+      "description": "Book cover for Tomorrow, and Tomorrow, and Tomorrow",
+      "imageUrl": "https://images.unsplash.com/photo-1725582201587-e88d3e1cf15d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW9kZXJuJTIwbm92ZWx8ZW58MHx8fHwxNzU4NjM1MzIxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern novel"
+    },
+    {
+      "id": "a-court-of-thorns-and-roses",
+      "description": "Book cover for A Court of Thorns and Roses",
+      "imageUrl": "https://images.unsplash.com/photo-1551029506-0807df4e2031?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmYW50YXN5JTIwYm9va3xlbnwwfHx8fDE3NTg1OTMxMTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy book"
+    },
+    {
+      "id": "dune",
+      "description": "Book cover for Dune",
+      "imageUrl": "https://images.unsplash.com/photo-1601315488950-3b5047998b38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzY2llbmNlJTIwZmljdGlvbnxlbnwwfHx8fDE3NTg2MDAxMDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "science fiction"
+    }
+  ]
 }
