@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { categoryDrilldown } from '@/ai/flows/category-drilldown-llm';
 import { BrainCircuit } from 'lucide-react';
+import { isDev } from '@/lib/utils';
 
 type CategoryPageProps = {
   params: {
@@ -36,7 +37,9 @@ async function AiSuggestions({ categoryName }: { categoryName: string }) {
       </div>
     );
   } catch (error) {
-    console.error('AI suggestion failed:', error);
+    if (isDev()) {
+        console.error('AI suggestion failed:', error);
+    }
     return null;
   }
 }
